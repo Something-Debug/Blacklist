@@ -5,14 +5,14 @@ local _blacklistedNaturalSpawn = {
     [`police3`] = 'police3'
 }
 AddEventHandler('entityCreating', function(entity)
-    local _source = source
-    if not IsPlayerAceAllowed(_source, 'command') then --Check permissions
+    local entityOwner = NetworkGetEntityOwner(entity)
+    if not IsPlayerAceAllowed(entityOwner, 'command') then --Check permissions
         if _blacklistedmodels[GetEntityModel(entity)] then --Is the vehicle being spawned blacklisted
-            TriggerClientEvent('notify', -1, 'Blacklisted Vehicle Model') --Let the client know the vehicle is blacklisted
-            CancelEvent() --Prevent the vehicle from being spawned
+            TriggerClientEvent('notify', entityOwner, 'Blacklisted Vehicle Model') --Let the client know the vehicle is blacklisted
+            CancelEvent() --Cancel the creating of the vehicle
         end
         if _blacklistedNaturalSpawn[GetEntityModel(entity)] then --Is the vehicle being spawned blacklisted
-            CancelEvent() --Prevent the vehicle from being spawne
+            CancelEvent() --Cancel the creating of the vehicle
         end
     end
 end)
