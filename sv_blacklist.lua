@@ -23,7 +23,7 @@ function ProcessAces()
         for i=0, GetNumPlayerIndices()-1 do -- loop through all players
             player = tonumber(GetPlayerFromIndex(i))
             Citizen.Wait(0)
-            if IsPlayerAceAllowed(player, 'command') then
+            if IsPlayerAceAllowed(player, 'Blacklist') then
                 TriggerClientEvent("checkAce", player, true)
             end
         end
