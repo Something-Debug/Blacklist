@@ -32,4 +32,4 @@ None, no support will be offered this, resource is simple to set up and is not b
 
 # Notes
 - More then just vehicles can be added to sv_blacklist props & peds also work.
--In order for the logging to work you need to set a webhook in sv_blacklist.lua
+- In order for the logging to work you need to set a webhook in sv_blacklist.lua
