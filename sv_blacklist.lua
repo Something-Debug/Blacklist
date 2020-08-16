@@ -54,6 +54,7 @@ CreateThread(function()
                     if GetEntityModel(playerPed) == GetHashKey(pedNames) then
                         TriggerClientEvent('setPed', player)
                         log('**Player:** `' ..name..'`\n**Information:** Tried to set themselves as a blacklisted ped `' ..pedNames..'`\n**Coords:** `' ..coords..'`')
+                        TriggerClientEvent('notify', player, 'Blacklisted Player Model')
                     end
                 end
                 for _, wepNames in pairs(_blacklistedWeapons) do
